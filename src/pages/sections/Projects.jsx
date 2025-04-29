@@ -1,39 +1,60 @@
 import { motion } from "framer-motion";
 import { useState, useRef } from "react";
 import { FlipWords } from "../../ui/FlipWords";
+import LinkPreview from "../../ui/LinkPreview";
 
 const words = ["pasión", "refugio", "amor", "dedicación", "curiosidad"];
-const projects = [
-  {
-    title1: "Jomor",
-    title2: "Design",
-    src: "jomor_design.jpeg",
 
-    link: "https://jomor.design",
+// Colores aleatorios para el cursor
+const cursorColors = [
+  "bg-[#f87171]",
+  "bg-[#34d399]",
+  "bg-[#60a5fa]",
+  "bg-[#fbbf24]",
+  "bg-[#c084fc]",
+  "bg-[#f472b6]",
+  "bg-[#4ade80]",
+  "bg-[#38bdf8]",
+  "bg-[#a78bfa]",
+];
+
+// projectsList simulado (reemplazá esto con el real)
+const projectsList = [
+  {
+    dictionary: { title1: "Stoic", title2: "Project" },
+    url: "https://estoicismo-web.vercel.app/",
   },
   {
-    title1: "La",
-    title2: "Grange",
-    src: "la_grange.jpeg",
-    link: "https://lagrange.com",
+    dictionary: { title1: "Viandas", title2: "Kaizen" },
+    url: "https://viandas-kaizen-a13p.vercel.app/",
   },
   {
-    title1: "Deux Huit",
-    title2: "Huit",
-    src: "deux_huit_huit.jpeg",
-    link: "https://deuxhuithuit.com",
+    dictionary: { title1: "Buscador", title2: "Regiones" },
+    url: "https://www.buscadorderegionessanitarias.com.ar/",
   },
   {
-    title1: "Nothing",
-    title2: "Design Studio",
-    src: "nothing_design_studio.png",
-    link: "https://nothing.design",
+    dictionary: { title1: "Sidefolio", title2: "Logo" },
+    url: "https://sidefolio-logo.vercel.app/",
   },
   {
-    title1: "Mambo",
-    title2: "Mambo",
-    src: "mambo_mambo.jpeg",
-    link: "https://mambomambo.com",
+    dictionary: { title1: "Academia", title2: "Elektron" },
+    url: "https://nodo-academy.vercel.app/",
+  },
+  {
+    dictionary: { title1: "Starter", title2: "Template" },
+    url: "https://starter-template-topaz.vercel.app/",
+  },
+  {
+    dictionary: { title1: "Progressus", title2: "Web" },
+    url: "https://progressus-web.vercel.app/",
+  },
+  {
+    dictionary: { title1: "Framer", title2: "Motion" },
+    url: "https://framer-motion-animations-nine.vercel.app/",
+  },
+  {
+    dictionary: { title1: "Tiny", title2: "Trees" },
+    url: "https://tiny-trees.vercel.app/",
   },
 ];
 
@@ -59,12 +80,19 @@ export default function Index() {
       y: e.clientY,
     });
   };
+
+  const handleClick = () => {
+    if (activeIndex !== null) {
+      const link = projectsList[activeIndex].url;
+      window.open(link, "_blank");
+    }
+  };
+
   return (
     <section
       className="w-full overflow-hidden py-24 relative"
+      ref={containerRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setShowCursor(true)}
-      onMouseLeave={() => setShowCursor(false)}
     >
       <h3 className="text-3xl md:text-5xl text-center font-medium leading-3 md:leading-10 pb-20 dark:text-[#ece7dd] text-slate-900">
         Proyectos nacidos de mí
@@ -83,43 +111,52 @@ export default function Index() {
           top: mousePos.y,
           left: mousePos.x,
           opacity: showCursor ? 1 : 0,
+          scale: showCursor ? 1 : 0,
         }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        style={{ translateX: "0", translateY: "0" }}
+        style={{ translateX: "-50%", translateY: "-50%" }}
       >
-        <div className="bg-black dark:bg-white text-white dark:text-black w-24 h-24 rounded-full flex items-center justify-center font-semibold text-sm uppercase cursor-pointer">
+        <div
+          onClick={handleClick}
+          className={`w-24 h-24 rounded-full flex items-center justify-center font-semibold text-sm uppercase text-white cursor-pointer ${
+            cursorColors[activeIndex ?? 0]
+          }`}
+        >
           Visitar
         </div>
       </motion.div>
 
-      <div ref={containerRef}>
-        {projects.map((project, i) => {
-          const { title1, title2, src } = project;
-
+      <div
+        ref={containerRef}
+        onMouseEnter={() => setShowCursor(true)}
+        onMouseLeave={() => setShowCursor(false)}
+      >
+        {projectsList.map((project, i) => {
           return (
             <div
               key={i}
+              href={project.url}
               onMouseEnter={() => setActiveIndex(i)}
               onMouseLeave={() => setActiveIndex(null)}
               className={`w-full flex justify-center items-center cursor-pointer 
                           border-t border-slate-950 py-[0.8vw]
-                          ${i === projects.length - 1 ? "border-b-2" : ""}`}
+                          ${i === projectsList.length - 1 ? "border-b-2" : ""}`}
             >
-              <p className="text-[4vw] mr-[0.75vw] m-0">{title1}</p>
+              <p className="text-[4vw] mr-[0.75vw] m-0">
+                {project.dictionary.title1}
+              </p>
 
               <motion.div
                 variants={anim}
                 animate={activeIndex === i ? "open" : "closed"}
                 className="overflow-hidden flex justify-center w-0"
               >
-                <img
-                  src={`/medias/${src}`}
-                  alt={`${title1} ${title2}`}
-                  className="w-[10vw]"
-                />
+                <LinkPreview url={project.url} width={150} height={75} />
               </motion.div>
 
-              <p className="text-[4vw] ml-[0.75vw] m-0">{title2}</p>
+              <p className="text-[4vw] ml-[0.75vw] m-0">
+                {project.dictionary.title2}
+              </p>
             </div>
           );
         })}

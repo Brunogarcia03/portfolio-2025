@@ -16,7 +16,7 @@ export const Switch = ({ checked, setChecked }) => {
   };
 
   return (
-    <form className="flex space-x-4 antialiased items-center">
+    <form className="flex space-x-4 antialiased items-center justify-center">
       <label
         htmlFor="checkbox"
         className={twMerge(
@@ -30,8 +30,8 @@ export const Switch = ({ checked, setChecked }) => {
           }}
           animate={{
             height: ["20px", "10px", "20px"],
-            width: ["20px", "30px", "20px", "20px"],
-            x: checked ? 32 : 0,
+            width: ["20px", "30px", "20px"],
+            x: checked ? 30 : 0,
             backgroundColor: checked ? "#f8fafc" : "#020618",
           }}
           transition={{

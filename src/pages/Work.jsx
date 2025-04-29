@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import PolaroidCard from "../ui/PolaroidCard";
 
@@ -7,7 +7,11 @@ import Projects from "../pages/sections/Projects";
 
 const Work = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const sectionRef = useRef();
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -16,7 +20,7 @@ const Work = () => {
       window.scrollTo(0, 0);
     }, 2000);
 
-    return () => clearTimeout(timeout); // buena práctica
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
@@ -62,7 +66,7 @@ const Work = () => {
                   className="w-[240px] absolute -right-48 -top-20 rotate-6"
                 >
                   <PolaroidCard
-                    sectionRef={sectionRef}
+                    scrollYProgress={scrollYProgress}
                     url="https://d8nrpaglj2m0a.cloudfront.net/9d437da6-ac13-4a2a-a587-61bb0f5ee8d8/images/twins2.jpg"
                     label="Hola"
                   />
@@ -81,7 +85,7 @@ const Work = () => {
                   className="w-[240px] absolute -left-52 -bottom-24 -rotate-6"
                 >
                   <PolaroidCard
-                    sectionRef={sectionRef}
+                    scrollYProgress={scrollYProgress}
                     url="https://d8nrpaglj2m0a.cloudfront.net/9d437da6-ac13-4a2a-a587-61bb0f5ee8d8/images/github-universe.jpg"
                     label="Hola"
                   />

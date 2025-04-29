@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Switch } from "./Switch";
 import { AnimatePresence, motion } from "framer-motion";
@@ -25,8 +25,15 @@ const Header = () => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    setChecked(prefersDark);
+  }, []);
+
   return (
-    <header className="w-full top-0 py-8 z-[99]">
+    <header className="w-full top-0 py-8">
       <AnimatePresence mode="popLayout">
         <nav className="max-w-md mx-auto flex items-center justify-between text-lg font-jetbrainsmono border border-slate-900 px-5 py-2 rounded-3xl dark:border-slate-50 backdrop-blur-md dark:bg-slate-900/10 bg-slate-50/10">
           {navList.map((nav, index) => (

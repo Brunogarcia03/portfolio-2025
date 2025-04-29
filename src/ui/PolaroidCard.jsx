@@ -1,19 +1,8 @@
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  useScroll,
-} from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 
-const PolaroidCard = ({ url, label, rotate, sectionRef }) => {
+const PolaroidCard = ({ url, label, rotate, scrollYProgress }) => {
   const cardRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
   const translateY = useTransform(scrollYProgress, [0, 1], [350, -350]);
 
   // Motion values
