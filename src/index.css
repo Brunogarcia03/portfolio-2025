@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-jetbrainsmono: "JetBrains Mono", monospace;
+    --font-zentokyo: "Zen Tokyo Zoo", system-ui;
+    --font-hallelujah: "Gloria Hallelujah", cursive;
+    --font-inter: "Inter", sans-serif;
+  }
+
+  /* Puedes crear clases base también */
+  .font-jetbrainsmono {
+    font-family: var(--font-jetbrainsmono);
+  }
+
+  .font-zentokyo {
+    font-family: var(--font-zentokyo);
+  }
+
+  .font-hallelujah {
+    font-family: var(--font-hallelujah);
+  }
+
+  .font-inter {
+    font-family: var(--font-inter);
+  }
+}
+
+body {
+  @apply bg-[linear-gradient(90deg,_rgba(236,231,221,1)_0%,_rgba(144,161,185,1)_40%,_rgba(226,232,240,1)_70%)] text-slate-950 dark:bg-[linear-gradient(90deg,_rgba(15,23,43,1)_0%,_rgba(69,85,108,1)_40%,_rgba(49,65,88,1)_68%)] dark:text-slate-50;
+}
+
+@layer components {
+  .hoverLetter {
+    transition: 0.3s font-weight, 0.3s color;
+  }
+
+  .hoverLetter:hover {
+    font-weight: 900;
+  }
+
+  .hoverLetter:hover + .hoverLetter {
+    font-weight: 500;
+    opacity: 70;
+  }
+
+  .hoverLetter:hover + .hoverLetter + .hoverLetter {
+    font-weight: 300;
+    opacity: 30;
+  }
+
+  .hoverLetter:has(+ .hoverLetter:hover) {
+    font-weight: 500;
+    opacity: 70;
+  }
+
+  .hoverLetter:has(+ .hoverLetter + .hoverLetter:hover) {
+    font-weight: 300;
+    opacity: 30;
+  }
+}
