@@ -30,6 +30,7 @@ export default function LinkPreview({
     <motion.div className="shadow-xl rounded-xl">
       <a
         href={url}
+        target="_blank"
         className="block p-1 bg-white border-2 border-transparent shadow rounded-xl"
         style={{ fontSize: 0 }}
       >

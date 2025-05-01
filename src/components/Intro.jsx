@@ -1,7 +1,16 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const words = ["Serendipia", "Simplicidad", "Resiliencia", "Éter", "Plenitud"];
+const words = [
+  "¡Hola!",
+  "Bonjour !",
+  "Hello!",
+  "Ciao!",
+  "Olà!",
+  "やあ！",
+  "Hallå!",
+  "Guten Tag!",
+];
 
 const opacity = {
   initial: {
@@ -36,15 +45,14 @@ export default function Intro() {
   }, []);
 
   useEffect(() => {
-    if (index === words.length - 1) return;
-    const timer = setTimeout(
+    if (index == words.length - 1) return;
+
+    setTimeout(
       () => {
         setIndex(index + 1);
       },
-      index === 0 ? 1000 : 400
+      index == 0 ? 1500 : 150
     );
-
-    return () => clearTimeout(timer);
   }, [index]);
 
   const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
@@ -83,7 +91,22 @@ export default function Intro() {
             className="flex items-center font-jetbrainsmono text-white text-8xl italic absolute z-10"
           >
             <span className="block w-2.5 h-2.5 bg-white rounded-full mr-2"></span>
-            {words[index]}
+            {index === 0
+              ? words[index].split("").map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0, filter: "blur(4px)" }}
+                    animate={{ opacity: 1, filter: "blur(0px)" }}
+                    transition={{
+                      duration: 1,
+                      ease: "easeInOut",
+                      delay: i * 0.2,
+                    }}
+                  >
+                    {letter}
+                  </motion.span>
+                ))
+              : words[index]}
           </motion.p>
 
           <svg className="absolute top-0 w-full h-[calc(100%+300px)]">

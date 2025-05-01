@@ -1,62 +1,15 @@
 import { motion } from "framer-motion";
-import { useState, useRef } from "react";
-import { FlipWords } from "../../ui/FlipWords";
-import LinkPreview from "../../ui/LinkPreview";
+import { useState, useRef, Fragment } from "react";
+import { FlipWords } from "../../components/ui/FlipWords";
+import LinkPreview from "../../components/ui/LinkPreview";
+import {
+  cursorColors,
+  projectEmojis,
+  projectsList,
+} from "../../constants/projectsArray";
+import { div } from "framer-motion/client";
 
 const words = ["pasión", "refugio", "amor", "dedicación", "curiosidad"];
-
-// Colores aleatorios para el cursor
-const cursorColors = [
-  "bg-[#f87171]",
-  "bg-[#34d399]",
-  "bg-[#60a5fa]",
-  "bg-[#fbbf24]",
-  "bg-[#c084fc]",
-  "bg-[#f472b6]",
-  "bg-[#4ade80]",
-  "bg-[#38bdf8]",
-  "bg-[#a78bfa]",
-];
-
-// projectsList simulado (reemplazá esto con el real)
-const projectsList = [
-  {
-    dictionary: { title1: "Stoic", title2: "Project" },
-    url: "https://estoicismo-web.vercel.app/",
-  },
-  {
-    dictionary: { title1: "Viandas", title2: "Kaizen" },
-    url: "https://viandas-kaizen-a13p.vercel.app/",
-  },
-  {
-    dictionary: { title1: "Buscador", title2: "Regiones" },
-    url: "https://www.buscadorderegionessanitarias.com.ar/",
-  },
-  {
-    dictionary: { title1: "Sidefolio", title2: "Logo" },
-    url: "https://sidefolio-logo.vercel.app/",
-  },
-  {
-    dictionary: { title1: "Academia", title2: "Elektron" },
-    url: "https://nodo-academy.vercel.app/",
-  },
-  {
-    dictionary: { title1: "Starter", title2: "Template" },
-    url: "https://starter-template-topaz.vercel.app/",
-  },
-  {
-    dictionary: { title1: "Progressus", title2: "Web" },
-    url: "https://progressus-web.vercel.app/",
-  },
-  {
-    dictionary: { title1: "Framer", title2: "Motion" },
-    url: "https://framer-motion-animations-nine.vercel.app/",
-  },
-  {
-    dictionary: { title1: "Tiny", title2: "Trees" },
-    url: "https://tiny-trees.vercel.app/",
-  },
-];
 
 const anim = {
   initial: { width: 0 },
@@ -94,7 +47,7 @@ export default function Index() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
     >
-      <h3 className="text-3xl md:text-5xl text-center font-medium leading-3 md:leading-10 pb-20 dark:text-[#ece7dd] text-slate-900">
+      <h3 className="text-3xl md:text-5xl text-center font-medium leading-3 md:leading-10 pb-32 dark:text-[#ece7dd] text-slate-900">
         Proyectos nacidos de mí
         <FlipWords
           className="text-3xl md:text-5xl font-bold italic"
@@ -118,11 +71,13 @@ export default function Index() {
       >
         <div
           onClick={handleClick}
-          className={`w-24 h-24 rounded-full flex items-center justify-center font-semibold text-sm uppercase text-white cursor-pointer ${
+          className={`w-24 h-24 rounded-full flex items-center justify-center font-semibold text-sm uppercase opacity-60 cursor-pointer ${
             cursorColors[activeIndex ?? 0]
           }`}
         >
-          Visitar
+          <p className="text-3xl opacity-100">
+            {projectEmojis[activeIndex ?? 0]}
+          </p>
         </div>
       </motion.div>
 
@@ -133,31 +88,48 @@ export default function Index() {
       >
         {projectsList.map((project, i) => {
           return (
-            <div
+            <article
+              className="flex flex-col items-center justify-center"
               key={i}
-              href={project.url}
               onMouseEnter={() => setActiveIndex(i)}
               onMouseLeave={() => setActiveIndex(null)}
-              className={`w-full flex justify-center items-center cursor-pointer 
-                          border-t border-slate-950 py-[0.8vw]
-                          ${i === projectsList.length - 1 ? "border-b-2" : ""}`}
             >
-              <p className="text-[4vw] mr-[0.75vw] m-0">
-                {project.dictionary.title1}
-              </p>
-
-              <motion.div
-                variants={anim}
-                animate={activeIndex === i ? "open" : "closed"}
-                className="overflow-hidden flex justify-center w-0"
+              <div
+                href={project.url}
+                className={`w-full flex justify-center items-center cursor-pointer 
+                          border-t border-slate-950 pt-[0.8vw]`}
               >
-                <LinkPreview url={project.url} width={150} height={75} />
-              </motion.div>
+                <p className="text-[5vw] mr-[0.75vw] m-0">
+                  {project.dictionary.title1}
+                </p>
 
-              <p className="text-[4vw] ml-[0.75vw] m-0">
-                {project.dictionary.title2}
+                <motion.div
+                  variants={anim}
+                  animate={activeIndex === i ? "open" : "closed"}
+                  className="overflow-hidden flex justify-center w-0"
+                >
+                  <LinkPreview url={project.url} width={220} height={110} />
+                </motion.div>
+
+                <p className="text-[5vw] ml-[0.75vw] m-0">
+                  {project.dictionary.title2}
+                </p>
+              </div>
+              <p className="text-center text-2xl max-w-2xl pb-3">
+                {project.description}
               </p>
-            </div>
+              <div className="flex gap-3 items-center justify-center pb-[1vw]">
+                {project.icons.map((icon, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col items-center justify-center dark:bg-slate-60/70 bg-slate-900/60 text-white p-2 rounded-lg"
+                  >
+                    <icon.icon className="w-8 h-8" />
+                    <p className="text-xs mt-1">{icon.name}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
           );
         })}
       </div>

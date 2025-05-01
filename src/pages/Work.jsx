@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-import PolaroidCard from "../ui/PolaroidCard";
+import PolaroidCard from "../components/ui/PolaroidCard";
 
 import Intro from "../components/Intro";
 import Projects from "../pages/sections/Projects";
@@ -42,7 +42,8 @@ const Work = () => {
                   layoutId="bruno"
                   className="text-8xl text-center font-jetbrainsmono font-semibold z-10"
                   initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.75, ease: "easeInOut" }}
                 >
                   Hola! Soy{" "}
@@ -56,7 +57,8 @@ const Work = () => {
                 <motion.div
                   layoutId="photo-1"
                   initial={{ scale: 1, y: 0 }}
-                  animate={{ y: [-15, 15] }}
+                  whileInView={{ y: [-15, 15] }}
+                  viewport={{ once: true }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,
@@ -75,7 +77,8 @@ const Work = () => {
                 <motion.div
                   layoutId="photo-2"
                   initial={{ scale: 1, y: 0 }}
-                  animate={{ y: [15, -15] }}
+                  whileInView={{ y: [15, -15] }}
+                  viewport={{ once: true }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,
