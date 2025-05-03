@@ -13,80 +13,132 @@ import {
   CSS,
 } from "@ridemountainpig/svgl-react";
 
-const iconsList = [
-  { icon: ReactDark, name: "React" },
-  { icon: Nextjs, name: "Next.js" },
-  { icon: MotionDark, name: "Motion" },
-  { icon: JavaScript, name: "JavaScript" },
-  { icon: TailwindCSS, name: "Tailwind CSS" },
-  { icon: Strapi, name: "Strapi" },
-  { icon: TypeScript, name: "TypeScript" },
-  { icon: PrismaDark, name: "Prisma" },
-  { icon: Python, name: "Python" },
-  { icon: Django, name: "Django" },
-  { icon: HTML5, name: "Html" },
-  { icon: CSS, name: "Css" },
+export const iconsList = [
+  {
+    icon: ReactDark,
+    name: "React",
+    description:
+      "React - La biblioteca que convierte funciones en magia visual.",
+  },
+  {
+    icon: Nextjs,
+    name: "Next.js",
+    description: "Next.js - El framework que siempre llega primero.",
+  },
+  {
+    icon: MotionDark,
+    name: "Motion",
+    description: "Framer Motion - incluso tus divs merecen moverse.",
+  },
+  {
+    icon: JavaScript,
+    name: "JavaScript",
+    description: "JavaScript - Lo amas, lo odias, y no puedes vivir sin él.",
+  },
+  {
+    icon: TailwindCSS,
+    name: "Tailwind CSS",
+    description:
+      "Tailwind - Escribir CSS sin escribir CSS (y sin perder la cabeza).",
+  },
+  {
+    icon: Strapi,
+    name: "Strapi",
+    description: "Strapi - El CMS que no te grita, ¡te susurra en API!",
+  },
+  {
+    icon: TypeScript,
+    name: "TypeScript",
+    description: "TypeScript - JavaScript con armadura (y advertencias).",
+  },
+  {
+    icon: PrismaDark,
+    name: "Prisma",
+    description: "Prisma - ORM elegante para bases de datos desordenadas.",
+  },
+  {
+    icon: Python,
+    name: "Python",
+    description: "Python - Legible, amigable y más inteligente que la mayoría.",
+  },
+  {
+    icon: Django,
+    name: "Django",
+    description: "Django - El framework que hace que Python se vista de gala.",
+  },
+  {
+    icon: HTML5,
+    name: "Html",
+    description:
+      "HTML - La estructura de las páginas web, ¿es un lenguaje de programación?",
+  },
+  {
+    icon: CSS,
+    name: "Css",
+    description:
+      "CSS - Estiliza tus páginas, tal vez puedas hacerlo con tu vida.",
+  },
 ];
 
 export const projectsList = [
   {
-    dictionary: { title1: "Stoic", title2: "Project" },
+    title: "Stoic Project",
     url: "https://estoicismo-web.vercel.app/",
     icons: [iconsList[1], iconsList[2], iconsList[3], iconsList[4]],
     description:
       "Una plataforma para aprender los principios del estoicismo con una estética sobria y elegante.",
   },
   {
-    dictionary: { title1: "Viandas", title2: "Kaizen" },
+    title: "Viandas Kaizen",
     url: "https://viandas-kaizen-a13p.vercel.app/",
     icons: [iconsList[1], iconsList[3], iconsList[4], iconsList[5]],
     description:
       "Sistema para gestión de pedidos y administración de menú semanal para un emprendimiento de viandas.",
   },
   {
-    dictionary: { title1: "Buscador", title2: "Regiones" },
+    title: "Buscador Regiones",
     url: "https://www.buscadorderegionessanitarias.com.ar/",
     icons: [iconsList[1], iconsList[6], iconsList[7]],
     description:
       "Herramienta geográfica interactiva que permite buscar regiones sanitarias por ubicación.",
   },
   {
-    dictionary: { title1: "Sidefolio", title2: "Logo" },
+    title: "Sidefolio Logo",
     url: "https://sidefolio-logo.vercel.app/",
     icons: [iconsList[1], iconsList[2], iconsList[3], iconsList[4]],
     description:
       "Generador visual de logotipos para portfolios con opciones de exportación rápida.",
   },
   {
-    dictionary: { title1: "Academia", title2: "Elektron" },
+    title: "Academia Elektron",
     url: "https://nodo-academy.vercel.app/",
     icons: [iconsList[1], iconsList[6], iconsList[4], iconsList[7]],
     description:
       "Landing institucional para una academia de tecnología con estética moderna y responsiva.",
   },
   {
-    dictionary: { title1: "Starter", title2: "Template" },
+    title: "Starter Template",
     url: "https://starter-template-topaz.vercel.app/",
     icons: [iconsList[1], iconsList[2], iconsList[6], iconsList[4]],
     description:
       "Boilerplate personal para lanzar proyectos rápidamente, con configuración pre-hecha.",
   },
   {
-    dictionary: { title1: "Progressus", title2: "Web" },
+    title: "Progressus Web",
     url: "https://progressus-web.vercel.app/",
     icons: [iconsList[1], iconsList[6], iconsList[4]],
     description:
       "Una dashboard minimalista para visualizar progreso y métricas personales o de proyectos.",
   },
   {
-    dictionary: { title1: "Framer", title2: "Motion" },
+    title: "Framer Motion",
     url: "https://framer-motion-animations-nine.vercel.app/",
     icons: [iconsList[0], iconsList[3], iconsList[4], iconsList[2]],
     description:
       "Ejemplos interactivos de animaciones con Framer Motion, enfocados en microinteracciones.",
   },
   {
-    dictionary: { title1: "Tiny", title2: "Trees" },
+    title: "Tiny Trees",
     url: "https://tiny-trees.vercel.app/",
     icons: [iconsList[1], iconsList[2], iconsList[3], iconsList[4]],
     description:

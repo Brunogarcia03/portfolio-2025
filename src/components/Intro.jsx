@@ -51,7 +51,7 @@ export default function Intro() {
       () => {
         setIndex(index + 1);
       },
-      index == 0 ? 1500 : 150
+      index == 0 ? 1800 : 150
     );
   }, [index]);
 

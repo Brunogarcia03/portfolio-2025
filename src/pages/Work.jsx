@@ -4,9 +4,13 @@ import PolaroidCard from "../components/ui/PolaroidCard";
 
 import Intro from "../components/Intro";
 import Projects from "../pages/sections/Projects";
+import Skills from "./sections/Skills";
+import Footer from "../components/Footer";
 
 const Work = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [techSelected, setTechSelected] = useState("");
+
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -56,13 +60,11 @@ const Work = () => {
 
                 <motion.div
                   layoutId="photo-1"
-                  initial={{ scale: 1, y: 0 }}
-                  whileInView={{ y: [-15, 15] }}
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    repeatType: "mirror",
+                    duration: 0.75,
                     ease: "easeInOut",
                   }}
                   className="w-[240px] absolute -right-48 -top-20 rotate-6"
@@ -76,13 +78,11 @@ const Work = () => {
 
                 <motion.div
                   layoutId="photo-2"
-                  initial={{ scale: 1, y: 0 }}
-                  whileInView={{ y: [15, -15] }}
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    repeatType: "mirror",
+                    duration: 0.75,
                     ease: "easeInOut",
                   }}
                   className="w-[240px] absolute -left-52 -bottom-24 -rotate-6"
@@ -95,7 +95,7 @@ const Work = () => {
                 </motion.div>
               </div>
 
-              <p className="max-w-3xl text-center px-3 md:p-0 text-xl md:text-3xl z-0 font-inter mr-1">
+              <p className="max-w-3xl text-center px-3 md:p-0 text-xl md:text-3xl z-0 font-inter mr-1 text-slate-800">
                 {"Me apasiona la programación y el desarrollo web, comprometido con la creación de soluciones tecnológicas innovadoras y eficientes."
                   .split(" ")
                   .map((word, index) => {
@@ -119,12 +119,17 @@ const Work = () => {
               </p>
               <button
                 onClick={() => alert("Euu Bataaaa eu")}
-                className="text-slate-950 text-lg rounded-2xl bg-gradient-to-b from-white to-gray-100 dark:from-gray-200 dark:to-gray-200 text-theme-4 hover:bg-theme-accent font-semibold px-24 py-3 mt-8 delay-0 hover:px-28 active:brightness-80 hover:tracking-widest transition-all duration-500 hover:shadow-2xl shadow-black"
+                className="text-slate-950 text-lg rounded-2xl bg-gradient-to-b from-white to-gray-100 dark:from-gray-200 dark:to-gray-200 border border-slate-900 dark:border-slate-50  text-theme-4 hover:bg-theme-accent font-semibold px-24 py-3 mt-8 delay-0 hover:px-28 active:brightness-80 hover:tracking-widest transition-all duration-500 hover:shadow-2xl shadow-black"
               >
                 ¡Frase importante!
               </button>
             </section>
-            <Projects />
+            <Skills
+              techSelected={techSelected}
+              setTechSelected={setTechSelected}
+            />
+            <Projects techSelected={techSelected} />
+            <Footer />
           </motion.main>
         )}
       </AnimatePresence>

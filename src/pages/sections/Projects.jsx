@@ -1,58 +1,51 @@
-import { motion } from "framer-motion";
-import { useState, useRef, Fragment } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useRef } from "react";
 import { FlipWords } from "../../components/ui/FlipWords";
 import LinkPreview from "../../components/ui/LinkPreview";
+import { WobbleCard } from "../../components/ui/WobbleCard";
 import {
   cursorColors,
   projectEmojis,
   projectsList,
 } from "../../constants/projectsArray";
-import { div } from "framer-motion/client";
 
 const words = ["pasión", "refugio", "amor", "dedicación", "curiosidad"];
-
-const anim = {
-  initial: { width: 0 },
-  open: {
-    width: "auto",
-    transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] },
-  },
-  closed: { width: 0 },
-};
 
 export default function Index() {
   const [activeIndex, setActiveIndex] = useState(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [showCursor, setShowCursor] = useState(false);
-  const containerRef = useRef();
+  const containerRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+  const height = useTransform(scrollYProgress, [0, 0.9], [50, 0]);
 
   const handleMouseMove = (e) => {
-    const rect = containerRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX,
-      y: e.clientY,
-    });
+    setMousePos({ x: e.clientX, y: e.clientY });
   };
 
   const handleClick = () => {
     if (activeIndex !== null) {
-      const link = projectsList[activeIndex].url;
-      window.open(link, "_blank");
+      window.open(projectsList[activeIndex].url, "_blank");
     }
   };
 
   return (
     <section
-      className="w-full overflow-hidden py-24 relative"
+      className="w-full overflow-hidden py-24 relative z-10 bg-[linear-gradient(90deg,_rgba(236,231,221,1)_0%,_rgba(144,161,185,1)_40%,_rgba(226,232,240,1)_70%)] dark:bg-[linear-gradient(90deg,_rgba(15,23,43,1)_0%,_rgba(69,85,108,1)_40%,_rgba(49,65,88,1)_68%)]"
       ref={containerRef}
       onMouseMove={handleMouseMove}
     >
-      <h3 className="text-3xl md:text-5xl text-center font-medium leading-3 md:leading-10 pb-32 dark:text-[#ece7dd] text-slate-900">
-        Proyectos nacidos de mí
+      <h3 className="text-3xl md:text-5xl text-center font-medium transition-all duration-300 leading-3 md:leading-10 pb-24 dark:text-[#ece7dd] text-slate-900">
+        Proyectos nacidos de mí{" "}
         <FlipWords
           className="text-3xl md:text-5xl font-bold italic"
           words={words}
-        />
+          duration={3}
+        />{" "}
         <br />
         por la programación.
       </h3>
@@ -81,57 +74,59 @@ export default function Index() {
         </div>
       </motion.div>
 
-      <div
-        ref={containerRef}
-        onMouseEnter={() => setShowCursor(true)}
-        onMouseLeave={() => setShowCursor(false)}
-      >
-        {projectsList.map((project, i) => {
-          return (
-            <article
-              className="flex flex-col items-center justify-center"
-              key={i}
-              onMouseEnter={() => setActiveIndex(i)}
-              onMouseLeave={() => setActiveIndex(null)}
-            >
-              <div
-                href={project.url}
-                className={`w-full flex justify-center items-center cursor-pointer 
-                          border-t border-slate-950 pt-[0.8vw]`}
-              >
-                <p className="text-[5vw] mr-[0.75vw] m-0">
-                  {project.dictionary.title1}
+      {/* Grid de tarjetas Wobble */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-2xl lg:max-w-7xl px-[5vh] mx-auto w-full">
+        {projectsList.map((project, i) => (
+          <WobbleCard
+            key={i}
+            containerClassName={`relative col-span-1 ${cursorColors[i]} ${
+              i === 0 || i === projectsList.length - 1
+                ? "col-span-1 lg:col-span-2 h-full bg-pink-800 lg:min-h-[300px]"
+                : "col-span-1 min-h-[300px]"
+            } bg-slate-800 text-white`}
+            setActiveIndex={setActiveIndex}
+            setShowCursor={setShowCursor}
+            index={i}
+          >
+            {i === 0 || i === projectsList.length - 1 ? (
+              <div className="lg:max-w-md">
+                <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                  {project.title}
+                </h2>
+                <p className="mt-4 text-left text-base/6 text-neutral-200">
+                  {project.description}
                 </p>
-
-                <motion.div
-                  variants={anim}
-                  animate={activeIndex === i ? "open" : "closed"}
-                  className="overflow-hidden flex justify-center w-0"
-                >
-                  <LinkPreview url={project.url} width={220} height={110} />
-                </motion.div>
-
-                <p className="text-[5vw] ml-[0.75vw] m-0">
-                  {project.dictionary.title2}
+                <div className="flex items-center justify-center lg:justify-start w-full mt-4">
+                  <LinkPreview
+                    url={project.url}
+                    width={300}
+                    height={200}
+                    alt="linear demo image"
+                    className=""
+                  />
+                </div>
+              </div>
+            ) : (
+              <div>
+                <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+                  {project.title}
+                </h2>
+                <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
+                  {project.description}
                 </p>
+                <div className="flex items-center justify-center w-full mt-4">
+                  <LinkPreview
+                    url={project.url}
+                    width={300}
+                    height={200}
+                    alt="linear demo image"
+                    className="mx-auto h-[200px]"
+                  />
+                </div>
               </div>
-              <p className="text-center text-2xl max-w-2xl pb-3">
-                {project.description}
-              </p>
-              <div className="flex gap-3 items-center justify-center pb-[1vw]">
-                {project.icons.map((icon, i) => (
-                  <div
-                    key={i}
-                    className="flex flex-col items-center justify-center dark:bg-slate-60/70 bg-slate-900/60 text-white p-2 rounded-lg"
-                  >
-                    <icon.icon className="w-8 h-8" />
-                    <p className="text-xs mt-1">{icon.name}</p>
-                  </div>
-                ))}
-              </div>
-            </article>
-          );
-        })}
+            )}
+          </WobbleCard>
+        ))}
       </div>
     </section>
   );

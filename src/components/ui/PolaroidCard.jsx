@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 
 const PolaroidCard = ({ url, label, rotate, scrollYProgress }) => {
   const cardRef = useRef(null);
-  const translateY = useTransform(scrollYProgress, [0, 1], [350, -350]);
+  const translateY = useTransform(scrollYProgress, [0, 1], [0, 350]);
 
   // Motion values
   const x = useMotionValue(0);
