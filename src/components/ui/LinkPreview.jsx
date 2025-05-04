@@ -28,9 +28,7 @@ export default function LinkPreview({
 
   return (
     <motion.div className="shadow-xl rounded-xl">
-      <a
-        href={url}
-        target="_blank"
+      <div
         className="block p-1 bg-white border-2 border-transparent shadow rounded-xl"
         style={{ fontSize: 0 }}
       >
@@ -40,8 +38,12 @@ export default function LinkPreview({
           height={height}
           className="rounded-lg"
           alt="preview image"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = "/noise.webp";
+          }}
         />
-      </a>
+      </div>
     </motion.div>
   );
 }

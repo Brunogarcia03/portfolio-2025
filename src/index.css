@@ -34,7 +34,7 @@
 }
 
 body {
-  @apply bg-[linear-gradient(90deg,_rgba(236,231,221,1)_0%,_rgba(144,161,185,1)_40%,_rgba(226,232,240,1)_70%)] text-slate-950 dark:bg-[linear-gradient(90deg,_rgba(15,23,43,1)_0%,_rgba(69,85,108,1)_40%,_rgba(49,65,88,1)_68%)] dark:text-slate-50;
+  @apply bg-[linear-gradient(90deg,_rgba(236,231,221,1)_0%,_rgba(144,161,185,1)_40%,_rgba(226,232,240,1)_70%)] text-slate-950 dark:bg-[linear-gradient(90deg,_rgba(15,23,43,1)_0%,_rgba(69,85,108,1)_40%,_rgba(49,65,88,1)_68%)] dark:text-slate-50 transition-all duration-300;
 }
 
 @layer components {

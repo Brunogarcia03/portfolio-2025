@@ -1,7 +1,17 @@
 import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-export const Switch = ({ checked, setChecked }) => {
+export const Switch = () => {
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    setChecked(prefersDark);
+  }, []);
+
   const handleChange = (e) => {
     const isChecked = e.target.checked;
     setChecked(isChecked);

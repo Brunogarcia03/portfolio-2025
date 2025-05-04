@@ -1,65 +1,47 @@
-import { useScroll, useTransform, motion } from "framer-motion";
-import React, { useRef } from "react";
+import Linkedin from "/svgs/linkedin.svg";
+import Youtube from "/svgs/youtube.svg";
+import Twitch from "/svgs/twitch.svg";
+import Instagram from "/svgs/instagram_dark.svg";
+import Github from "/svgs/github_dark.svg";
 
-import {
-  GitHubDark,
-  InstagramDark,
-  LinkedIn,
-  Facebook,
-} from "@ridemountainpig/svgl-react";
+const links = [
+  { icon: Linkedin, url: "" },
+  { icon: Youtube, url: "" },
+  { icon: Twitch, url: "" },
+  { icon: Instagram, url: "" },
+  { icon: Github, url: "" },
+];
 
 export default function Footer() {
   return (
-    <footer className="w-full pb-10 z-10">
-      <div className="max-w-7xl mx-auto flex flex-col gap-10 items-center text-center">
-        {/* Logo Placeholder */}
-        <div className="w-16 h-16 rounded-full bg-white text-black font-bold text-xl flex items-center justify-center shadow-lg">
-          BG
-        </div>
-
-        {/* Social Links */}
-        <div className="flex gap-6 flex-wrap justify-center">
-          <a
-            href="https://github.com/Brunogarcia03"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-110 transition-transform"
-          >
-            <GitHubDark className="w-8 h-8" />
-          </a>
-          <a
-            href="https://www.canva.com/design/DAFbJcYWOvU/RJbDj3-kw0e7yKH8G5js8A/view"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-110 transition-transform flex items-center gap-2"
-          >
-            <span className="text-sm font-semibold">CV</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/bruno-garcía/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-110 transition-transform"
-          >
-            <LinkedIn className="w-8 h-8" />
-          </a>
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-110 transition-transform"
-          >
-            <InstagramDark className="w-8 h-8" />
-          </a>
-        </div>
-
-        {/* Footer Text */}
-        <div className="text-sm opacity-80">
-          <p>
-            <span className="font-semibold text-base">©</span> 2024 Bruno García
-            — All rights reserved
-          </p>
-        </div>
+    <footer className="w-full pb-10">
+      <div className="container mx-auto flex flex-col items-center justify-center gap-5">
+        <img
+          src="/photos/Leo.webp"
+          className="h-[100px] rounded-full border border-slate-900 dark:border-slate-50 hover:tracking-widest transition-all duration-500 hover:shadow-2xl shadow-black"
+        />
+        <ul className="flex items-center gap-5">
+          {links.map((icon, i) => (
+            <li
+              key={i}
+              className="border border-slate-900 rounded-lg dark:border-slate-50 dark:bg-slate-60/70 bg-slate-900/60 size-14 p-2 overflow-hidden hover:tracking-widest transition-all duration-500 hover:shadow-2xl shadow-black hover:scale-125"
+            >
+              <a href={icon.url}>
+                <img
+                  src={icon.icon}
+                  alt={`Logo ${i + 1}`}
+                  className="w-full h-full"
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
+        <button
+          onClick={() => navigate("/sobre-mi")}
+          className="text-slate-950 text-lg rounded-2xl bg-gradient-to-b from-white to-gray-100 dark:from-gray-200 dark:to-gray-200 border border-slate-900 dark:border-slate-50  text-theme-4 hover:bg-theme-accent font-semibold px-24 py-3 delay-0 hover:px-28 active:brightness-80 hover:tracking-widest transition-all duration-500 hover:shadow-2xl shadow-black"
+        >
+          ¡Visita mi CV!
+        </button>
       </div>
     </footer>
   );

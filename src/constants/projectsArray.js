@@ -1,79 +1,104 @@
+import Python from "/svgs/python.svg";
+import CSS from "/svgs/css_old.svg";
+import Django from "/svgs/django.svg";
+import HTML5 from "/svgs/html5.svg";
+import JavaScript from "/svgs/javascript.svg";
+import MotionDark from "/svgs/motion_dark.svg";
+import Nextjs from "/svgs/nextjs_icon_dark.svg";
+import PrismaDark from "/svgs/prisma_dark.svg";
+import ReactDark from "/svgs/react_dark.svg";
+import Strapi from "/svgs/strapi.svg";
+import TailwindCSS from "/svgs/tailwindcss.svg";
+import TypeScript from "/svgs/typescript.svg";
+
 import {
-  ReactDark,
-  Nextjs,
-  MotionDark,
-  JavaScript,
-  TailwindCSS,
-  Strapi,
-  TypeScript,
-  PrismaDark,
-  Python,
-  Django,
-  HTML5,
-  CSS,
+  ReactDarkUrl,
+  PythonUrl,
+  CSSUrl,
+  DjangoUrl,
+  HTML5Url,
+  JavaScriptUrl,
+  MotionDarkUrl,
+  NextjsUrl,
+  PrismaDarkUrl,
+  StrapiUrl,
+  TailwindCSSUrl,
+  TypeScriptUrl,
 } from "@ridemountainpig/svgl-react";
 
 export const iconsList = [
   {
     icon: ReactDark,
+    url: ReactDarkUrl,
     name: "React",
     description:
       "React - La biblioteca que convierte funciones en magia visual.",
   },
   {
     icon: Nextjs,
+    url: NextjsUrl,
     name: "Next.js",
     description: "Next.js - El framework que siempre llega primero.",
   },
   {
     icon: MotionDark,
+    url: MotionDarkUrl,
     name: "Motion",
     description: "Framer Motion - incluso tus divs merecen moverse.",
   },
   {
     icon: JavaScript,
+    url: JavaScriptUrl,
     name: "JavaScript",
     description: "JavaScript - Lo amas, lo odias, y no puedes vivir sin él.",
   },
   {
     icon: TailwindCSS,
+    url: TailwindCSSUrl,
     name: "Tailwind CSS",
     description:
       "Tailwind - Escribir CSS sin escribir CSS (y sin perder la cabeza).",
   },
   {
     icon: Strapi,
+    url: StrapiUrl,
     name: "Strapi",
     description: "Strapi - El CMS que no te grita, ¡te susurra en API!",
   },
   {
     icon: TypeScript,
+    url: TypeScriptUrl,
     name: "TypeScript",
     description: "TypeScript - JavaScript con armadura (y advertencias).",
   },
   {
     icon: PrismaDark,
+    url: PrismaDarkUrl,
     name: "Prisma",
     description: "Prisma - ORM elegante para bases de datos desordenadas.",
   },
   {
     icon: Python,
+    url: PythonUrl,
     name: "Python",
     description: "Python - Legible, amigable y más inteligente que la mayoría.",
   },
   {
     icon: Django,
+    url: DjangoUrl,
     name: "Django",
     description: "Django - El framework que hace que Python se vista de gala.",
   },
   {
     icon: HTML5,
+    url: HTML5Url,
     name: "Html",
     description:
       "HTML - La estructura de las páginas web, ¿es un lenguaje de programación?",
   },
   {
     icon: CSS,
+    url: CSSUrl,
     name: "Css",
     description:
       "CSS - Estiliza tus páginas, tal vez puedas hacerlo con tu vida.",
@@ -86,63 +111,63 @@ export const projectsList = [
     url: "https://estoicismo-web.vercel.app/",
     icons: [iconsList[1], iconsList[2], iconsList[3], iconsList[4]],
     description:
-      "Una plataforma para aprender los principios del estoicismo con una estética sobria y elegante.",
+      "He creado una página inspirada en la antigua Stoa Poikile, donde comparto frases, libros y reflexiones sobre el estoicismo. El objetivo es traer la sabiduría clásica a la era digital, con una experiencia visual limpia, animaciones suaves y navegación intuitiva.",
   },
   {
     title: "Viandas Kaizen",
     url: "https://viandas-kaizen-a13p.vercel.app/",
     icons: [iconsList[1], iconsList[3], iconsList[4], iconsList[5]],
     description:
-      "Sistema para gestión de pedidos y administración de menú semanal para un emprendimiento de viandas.",
+      "E-commerce de viandas desarrollado con Next.js, optimizado para SEO y rendimiento. Integración con Mercado Pago para pagos seguros. Diseño moderno y responsivo con Tailwind CSS y Shadcn.",
   },
   {
     title: "Buscador Regiones",
     url: "https://www.buscadorderegionessanitarias.com.ar/",
     icons: [iconsList[1], iconsList[6], iconsList[7]],
     description:
-      "Herramienta geográfica interactiva que permite buscar regiones sanitarias por ubicación.",
+      "He diseñado un buscador para Banco Prot Programas, permitiendo a los clientes de la provincia de Buenos Aires encontrar su región sanitaria y solicitar su prótesis.",
   },
   {
     title: "Sidefolio Logo",
     url: "https://sidefolio-logo.vercel.app/",
     icons: [iconsList[1], iconsList[2], iconsList[3], iconsList[4]],
     description:
-      "Generador visual de logotipos para portfolios con opciones de exportación rápida.",
+      "He desarrollado una web enfocada en el diseño y el marketing digital, creando soluciones escalables y adaptables para cualquier negocio. La idea era mostrar cómo una página bien diseñada puede potenciar una marca.",
   },
   {
     title: "Academia Elektron",
     url: "https://nodo-academy.vercel.app/",
     icons: [iconsList[1], iconsList[6], iconsList[4], iconsList[7]],
     description:
-      "Landing institucional para una academia de tecnología con estética moderna y responsiva.",
+      "Plataforma educativa innovadora que permite a los usuarios personalizar su ruta de aprendizaje, seleccionando libremente los nodos/lecciones según sus intereses y objetivos. Una experiencia de educación flexible y centrada en el estudiante.",
   },
   {
     title: "Starter Template",
     url: "https://starter-template-topaz.vercel.app/",
     icons: [iconsList[1], iconsList[2], iconsList[6], iconsList[4]],
     description:
-      "Boilerplate personal para lanzar proyectos rápidamente, con configuración pre-hecha.",
+      "He diseñado una landing page moderna y minimalista para una herramienta de diseño digital. La idea era destacar su funcionalidad con una interfaz limpia y atractiva.",
   },
   {
     title: "Progressus Web",
     url: "https://progressus-web.vercel.app/",
     icons: [iconsList[1], iconsList[6], iconsList[4]],
     description:
-      "Una dashboard minimalista para visualizar progreso y métricas personales o de proyectos.",
+      "He creado una landing page llamada Progressus, que presenta un producto web SaaS. El objetivo de esta página es mostrar las características y ventajas del producto a posibles usuarios.",
   },
   {
     title: "Framer Motion",
     url: "https://framer-motion-animations-nine.vercel.app/",
     icons: [iconsList[0], iconsList[3], iconsList[4], iconsList[2]],
     description:
-      "Ejemplos interactivos de animaciones con Framer Motion, enfocados en microinteracciones.",
+      "He creado una página interactiva utilizando Framer Motion y React. La idea era crear la página para mostrar mis avances en la herramienta de Framer motion.",
   },
   {
     title: "Tiny Trees",
     url: "https://tiny-trees.vercel.app/",
     icons: [iconsList[1], iconsList[2], iconsList[3], iconsList[4]],
     description:
-      "Visualizador creativo de árboles generativos con interacciones suaves y diseño experimental.",
+      "He creado una página sencilla pero hermosa, enfocada en el diseño, añadiendo animaciones suaves para mejorar la experiencia del usuario. La idea era demostrar mi capacidad para diseñar una página atractiva y funcional.",
   },
 ];
 

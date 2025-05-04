@@ -46,7 +46,7 @@ const PolaroidCard = ({ url, label, rotate, scrollYProgress }) => {
   return (
     <motion.div
       ref={cardRef}
-      className="group transition will-change-transform cursor-pointer"
+      className="group transition will-change-transform cursor-pointer h-full"
       style={{
         perspective: 1000,
         translateY: translateY,
@@ -60,7 +60,7 @@ const PolaroidCard = ({ url, label, rotate, scrollYProgress }) => {
         }}
         className="relative overflow-hidden rounded-lg bg-gradient-to-b from-white to-gray-100 p-4 shadow-2xl dark:from-gray-200 dark:to-gray-200"
       >
-        <div className="relative h-fit w-fit overflow-hidden rounded">
+        <div className="relative overflow-hidden rounded h-[200px]">
           <img
             src={url}
             alt={label}
