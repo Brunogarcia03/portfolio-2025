@@ -9,14 +9,14 @@ function Skills({ techSelected, setTechSelected }) {
       onDoubleClick={() => setTechSelected("")}
     >
       <h3
-        className="text-3xl md:text-5xl text-center font-medium leading-3 md:leading-10 pb-24 transition-all duration-300 dark:text-[#ece7dd] text-slate-900"
+        className="text-3xl md:text-5xl text-center font-medium leading-3 md:leading-10 pb-24 transition-all duration-300"
         onClick={() => setTechSelected("")}
       >
         Explorando las{" "}
         <FlipWords
           className="text-3xl md:text-5xl font-bold italic"
-          words={["habilidades", "recursos", "tecnologías"]}
-          duration={3}
+          words={["habilidades", "herramientas", "tecnologías"]}
+          duration={4}
         />
         <br />
         que he dominado en este viaje.

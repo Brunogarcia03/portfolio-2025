@@ -76,7 +76,11 @@ export const AnimatedTooltip = ({ items, setTechSelected, techSelected }) => {
                   ? "dark:bg-slate-50/70 bg-slate-900"
                   : ""
               )}
-              onClick={() => setTechSelected(item.name)}
+              onClick={() =>
+                techSelected === item.name
+                  ? setTechSelected("")
+                  : setTechSelected(item.name)
+              }
             >
               <img
                 src={item.icon}

@@ -4,6 +4,7 @@ import Work from "./pages/Work";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Transition from "./components/Transition";
+
 import Header from "./components/Header";
 
 function App() {

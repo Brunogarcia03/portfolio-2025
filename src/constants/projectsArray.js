@@ -26,6 +26,18 @@ import {
   TypeScriptUrl,
 } from "@ridemountainpig/svgl-react";
 
+export const cursorColors = [
+  "bg-[#3d3d3d]", // Estoicismo Web
+  "bg-[#9abc11]", // Viandas Kaizen
+  "bg-[#061927]", // Buscador de Regiones Sanitarias
+  "bg-[#ffd43d]", // Sidefolio Logo
+  "bg-[#333333]", // Academia Elektron
+  "bg-[#0a0a0a]", // Starter Template
+  "bg-[#131fe6]", // Progressus
+  "bg-[#6d5396]", // Framer Animations
+  "bg-green-800", // Tiny Trees
+];
+
 export const iconsList = [
   {
     icon: ReactDark,
@@ -110,6 +122,7 @@ export const projectsList = [
     title: "Stoic Project",
     url: "https://estoicismo-web.vercel.app/",
     icons: [iconsList[1], iconsList[2], iconsList[3], iconsList[4]],
+    color: cursorColors[0],
     description:
       "He creado una página inspirada en la antigua Stoa Poikile, donde comparto frases, libros y reflexiones sobre el estoicismo. El objetivo es traer la sabiduría clásica a la era digital, con una experiencia visual limpia, animaciones suaves y navegación intuitiva.",
   },
@@ -117,6 +130,7 @@ export const projectsList = [
     title: "Viandas Kaizen",
     url: "https://viandas-kaizen-a13p.vercel.app/",
     icons: [iconsList[1], iconsList[3], iconsList[4], iconsList[5]],
+    color: cursorColors[1],
     description:
       "E-commerce de viandas desarrollado con Next.js, optimizado para SEO y rendimiento. Integración con Mercado Pago para pagos seguros. Diseño moderno y responsivo con Tailwind CSS y Shadcn.",
   },
@@ -124,6 +138,7 @@ export const projectsList = [
     title: "Buscador Regiones",
     url: "https://www.buscadorderegionessanitarias.com.ar/",
     icons: [iconsList[1], iconsList[6], iconsList[7]],
+    color: cursorColors[2],
     description:
       "He diseñado un buscador para Banco Prot Programas, permitiendo a los clientes de la provincia de Buenos Aires encontrar su región sanitaria y solicitar su prótesis.",
   },
@@ -131,6 +146,7 @@ export const projectsList = [
     title: "Sidefolio Logo",
     url: "https://sidefolio-logo.vercel.app/",
     icons: [iconsList[1], iconsList[2], iconsList[3], iconsList[4]],
+    color: cursorColors[3],
     description:
       "He desarrollado una web enfocada en el diseño y el marketing digital, creando soluciones escalables y adaptables para cualquier negocio. La idea era mostrar cómo una página bien diseñada puede potenciar una marca.",
   },
@@ -138,6 +154,7 @@ export const projectsList = [
     title: "Academia Elektron",
     url: "https://nodo-academy.vercel.app/",
     icons: [iconsList[1], iconsList[6], iconsList[4], iconsList[7]],
+    color: cursorColors[4],
     description:
       "Plataforma educativa innovadora que permite a los usuarios personalizar su ruta de aprendizaje, seleccionando libremente los nodos/lecciones según sus intereses y objetivos. Una experiencia de educación flexible y centrada en el estudiante.",
   },
@@ -145,6 +162,7 @@ export const projectsList = [
     title: "Starter Template",
     url: "https://starter-template-topaz.vercel.app/",
     icons: [iconsList[1], iconsList[2], iconsList[6], iconsList[4]],
+    color: cursorColors[5],
     description:
       "He diseñado una landing page moderna y minimalista para una herramienta de diseño digital. La idea era destacar su funcionalidad con una interfaz limpia y atractiva.",
   },
@@ -152,6 +170,7 @@ export const projectsList = [
     title: "Progressus Web",
     url: "https://progressus-web.vercel.app/",
     icons: [iconsList[1], iconsList[6], iconsList[4]],
+    color: cursorColors[6],
     description:
       "He creado una landing page llamada Progressus, que presenta un producto web SaaS. El objetivo de esta página es mostrar las características y ventajas del producto a posibles usuarios.",
   },
@@ -159,6 +178,7 @@ export const projectsList = [
     title: "Framer Motion",
     url: "https://framer-motion-animations-nine.vercel.app/",
     icons: [iconsList[0], iconsList[3], iconsList[4], iconsList[2]],
+    color: cursorColors[7],
     description:
       "He creado una página interactiva utilizando Framer Motion y React. La idea era crear la página para mostrar mis avances en la herramienta de Framer motion.",
   },
@@ -166,21 +186,10 @@ export const projectsList = [
     title: "Tiny Trees",
     url: "https://tiny-trees.vercel.app/",
     icons: [iconsList[1], iconsList[2], iconsList[3], iconsList[4]],
+    color: cursorColors[8],
     description:
       "He creado una página sencilla pero hermosa, enfocada en el diseño, añadiendo animaciones suaves para mejorar la experiencia del usuario. La idea era demostrar mi capacidad para diseñar una página atractiva y funcional.",
   },
-];
-
-export const cursorColors = [
-  "bg-[#3d3d3d]", // Estoicismo Web
-  "bg-[#9abc11]", // Viandas Kaizen
-  "bg-[#061927]", // Buscador de Regiones Sanitarias
-  "bg-[#ffd43d]", // Sidefolio Logo
-  "bg-[#333333]", // Academia Elektron
-  "bg-[#0a0a0a]", // Starter Template
-  "bg-[#131fe6]", // Progressus
-  "bg-[#6d5396]", // Framer Animations
-  "bg-green-800", // Tiny Trees
 ];
 
 export const projectEmojis = [

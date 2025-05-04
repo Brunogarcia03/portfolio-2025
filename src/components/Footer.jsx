@@ -18,7 +18,11 @@ export default function Footer() {
       <div className="container mx-auto flex flex-col items-center justify-center gap-5">
         <img
           src="/photos/Leo.webp"
-          className="h-[100px] rounded-full border border-slate-900 dark:border-slate-50 hover:tracking-widest transition-all duration-500 hover:shadow-2xl shadow-black"
+          alt="Mi perro Leo"
+          loading="lazy"
+          width={100}
+          height={100}
+          className="rounded-full border border-slate-900 dark:border-slate-50 hover:tracking-widest transition-all duration-500 hover:shadow-2xl shadow-black"
         />
         <ul className="flex items-center gap-5">
           {links.map((icon, i) => (
@@ -42,6 +46,9 @@ export default function Footer() {
         >
           ¡Visita mi CV!
         </button>
+        <p className="text-center">
+          © 2024 Bruno García | Todos los deseos reservados
+        </p>
       </div>
     </footer>
   );

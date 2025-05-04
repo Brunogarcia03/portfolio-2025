@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Switch } from "./Switch";
 import { AnimatePresence, motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
@@ -20,13 +20,25 @@ const navList = [
 ];
 
 const Header = () => {
-  const [selected, setSelected] = useState("Trabajo");
+  const location = useLocation();
 
+  const [selected, setSelected] = useState(() => {
+    switch (location.pathname) {
+      case "/":
+        return "Trabajo";
+      case "/sobre-mi":
+        return "Sobre mí";
+      case "/contacto":
+        return "Contacto";
+      default:
+        return "";
+    }
+  });
   const navigate = useNavigate();
 
   return (
     <header className="w-full top-0 py-8">
-      <AnimatePresence mode="popLayout">
+      <AnimatePresence mode="popLayout" initial={false}>
         <nav className="max-w-md mx-auto flex items-center justify-between text-md sm:text-lg font-jetbrainsmono border border-slate-900 px-5 py-2 rounded-3xl dark:border-slate-50 backdrop-blur-md dark:bg-slate-900/10 bg-slate-50/10">
           {navList.map((nav, index) => (
             <button

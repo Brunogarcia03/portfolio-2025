@@ -8,6 +8,22 @@ import Projects from "../pages/sections/Projects";
 import Skills from "./sections/Skills";
 import Footer from "../components/Footer";
 
+const photoCards = [
+  {
+    layoutId: "photo-1",
+    url: "/photos/miniYo.jpg",
+    label: "Mini yo",
+    className: "hidden lg:block w-[240px] absolute -right-48 -top-20 rotate-6",
+  },
+  {
+    layoutId: "photo-2",
+    url: "/photos/Tango_Tina.jpg",
+    label: "Mi amores",
+    className:
+      "hidden lg:block w-[240px] absolute -left-52 -bottom-24 -rotate-6",
+  },
+];
+
 const Work = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [techSelected, setTechSelected] = useState("");
@@ -36,7 +52,7 @@ const Work = () => {
         {isLoading ? (
           <Intro key="intro" />
         ) : (
-          <motion.main
+          <main
             key="work"
             className="w-full h-full flex flex-col items-center overflow-hidden"
           >
@@ -54,50 +70,31 @@ const Work = () => {
                   transition={{ duration: 0.75, ease: "easeInOut" }}
                 >
                   Hola! Soy{" "}
-                  <motion.span className="font-zentokyo font-thin">
-                    Bruno
-                  </motion.span>
+                  <span className="font-zentokyo font-thin">Bruno</span>
                   <br />
                   Programador Web.
                 </motion.h1>
 
-                <motion.div
-                  layoutId="photo-1"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.75,
-                    ease: "easeInOut",
-                  }}
-                  className="hidden lg:block w-[240px] absolute -right-48 -top-20 rotate-6"
-                >
-                  <PolaroidCard
-                    scrollYProgress={scrollYProgress}
-                    url="/photos/miniYo.jpg"
-                    label="Mini yo"
-                  />
-                </motion.div>
-
-                <motion.div
-                  layoutId="photo-2"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{
-                    duration: 0.75,
-                    ease: "easeInOut",
-                  }}
-                  className="hidden lg:block w-[240px] absolute -left-52 -bottom-24 -rotate-6"
-                >
-                  <PolaroidCard
-                    scrollYProgress={scrollYProgress}
-                    url="/photos/Tango_Tina.jpg"
-                    label="Mi amores"
-                  />
-                </motion.div>
+                {photoCards.map(({ layoutId, url, label, className }) => (
+                  <motion.div
+                    key={layoutId}
+                    layoutId={layoutId}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.75, ease: "easeInOut" }}
+                    className={className}
+                  >
+                    <PolaroidCard
+                      scrollYProgress={scrollYProgress}
+                      url={url}
+                      label={label}
+                    />
+                  </motion.div>
+                ))}
               </div>
 
-              <p className="max-w-3xl text-center px-3 md:p-0 text-lg sm:text-2xl lg:text-3xl z-0 font-inter mr-1 text-slate-800 dark:text-slate-200">
+              <p className="max-w-3xl text-center px-3 md:p-0 text-lg sm:text-2xl lg:text-3xl z-0 font-inter leading-6 md:leading-8 mr-1 text-slate-800 dark:text-slate-200">
                 {"Me apasiona la programación y el desarrollo web, comprometido con la creación de soluciones tecnológicas innovadoras y eficientes."
                   .split(" ")
                   .map((word, index) => {
@@ -142,7 +139,7 @@ const Work = () => {
               setTechSelected={setTechSelected}
             />
             <Footer />
-          </motion.main>
+          </main>
         )}
       </AnimatePresence>
     </>

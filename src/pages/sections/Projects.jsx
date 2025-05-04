@@ -1,7 +1,7 @@
 import { FlipWords } from "../../components/ui/FlipWords";
 import LinkPreview from "../../components/ui/LinkPreview";
 import { WobbleCard } from "../../components/ui/WobbleCard";
-import { cursorColors, projectsList } from "../../constants/projectsArray";
+import { projectsList } from "../../constants/projectsArray";
 
 const words = ["pasión", "refugio", "amor", "dedicación", "curiosidad"];
 
@@ -15,14 +15,14 @@ export default function Index({ techSelected, setTechSelected }) {
   return (
     <section className="w-full overflow-hidden py-24 relative z-10 bg-[linear-gradient(90deg,_rgba(236,231,221,1)_0%,_rgba(144,161,185,1)_40%,_rgba(226,232,240,1)_70%)] dark:bg-[linear-gradient(90deg,_rgba(15,23,43,1)_0%,_rgba(69,85,108,1)_40%,_rgba(49,65,88,1)_68%)]">
       <h3
-        className="text-3xl md:text-5xl text-center font-medium transition-all duration-300 leading-3 md:leading-10 pb-24 dark:text-[#ece7dd] text-slate-900 cursor-pointer"
+        className="text-3xl md:text-5xl text-center font-medium transition-all duration-300 leading-3 md:leading-10 pb-24 cursor-pointer"
         onClick={() => setTechSelected("")}
       >
         Proyectos nacidos de mí{" "}
         <FlipWords
           className="text-3xl md:text-5xl font-bold italic"
           words={words}
-          duration={3}
+          duration={4}
         />{" "}
         <br />
         por la programación.
@@ -38,7 +38,7 @@ export default function Index({ techSelected, setTechSelected }) {
                 ? "lg:col-span-2 bg-pink-800 lg:min-h-[300px]"
                 : "min-h-[300px]"
             } bg-slate-800 text-white`}
-            className={`${cursorColors[i]}`}
+            className={`${project.color}`}
             url={project.url}
           >
             {i === 0 || i === projectsList.length - 1 ? (
