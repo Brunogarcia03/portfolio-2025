@@ -2,6 +2,8 @@ import { twMerge } from "tailwind-merge";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+import { IconMoonFilled, IconSunFilled } from "@tabler/icons-react";
+
 export const Switch = () => {
   const [checked, setChecked] = useState(false);
 
@@ -27,7 +29,7 @@ export const Switch = () => {
 
   return (
     <AnimatePresence>
-      <form className="flex space-x-4 antialiased items-center justify-center">
+      <form className="relative flex space-x-4 antialiased items-center justify-center">
         <label
           htmlFor="checkbox"
           className={twMerge(
@@ -50,8 +52,14 @@ export const Switch = () => {
               delay: 0.1,
             }}
             key={String(checked)}
-            className="h-[20px] block rounded-full shadow-md z-10"
-          />
+            className="h-[20px] overflow-hidden block rounded-full shadow-md z-10 p-1 relative"
+          >
+            {checked ? (
+              <IconMoonFilled className="w-full h-full text-slate-950" />
+            ) : (
+              <IconSunFilled className="w-full h-full text-slate-50" />
+            )}
+          </motion.div>
           <input
             type="checkbox"
             checked={checked}

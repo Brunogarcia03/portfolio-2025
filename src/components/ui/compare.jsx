@@ -134,7 +134,7 @@ const Compare = ({
   );
 
   return (
-    <div
+    <motion.div
       ref={sliderRef}
       className={twMerge("w-[400px] h-[400px] overflow-hidden", className)}
       style={{
@@ -185,7 +185,7 @@ const Compare = ({
               <img
                 alt="first image"
                 src={firstImage}
-                fetchpriority="high"
+                fetchPriority="high"
                 loading="eager"
                 decoding="async"
                 className={twMerge(
@@ -209,7 +209,7 @@ const Compare = ({
           />
         ) : null}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 };
 

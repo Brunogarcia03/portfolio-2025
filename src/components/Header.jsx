@@ -37,7 +37,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="w-full top-0 py-8">
+    <header className="relative w-full top-0 py-8">
       <AnimatePresence mode="popLayout" initial={false}>
         <nav className="max-w-md mx-auto flex items-center justify-between text-md sm:text-lg font-jetbrainsmono border border-slate-900 px-5 py-2 rounded-3xl dark:border-slate-50 backdrop-blur-md dark:bg-slate-900/10 bg-slate-50/10">
           {navList.map((nav, index) => (
