@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import Linkedin from "/svgs/linkedin.svg";
 import Youtube from "/svgs/youtube.svg";

@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { useState, useEffect, Fragment } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "./Header";

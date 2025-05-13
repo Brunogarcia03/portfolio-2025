@@ -5,7 +5,7 @@ import {
   AnimatePresence,
   useMotionValue,
   useSpring,
-} from "framer-motion";
+} from "motion/react";
 import { twMerge } from "tailwind-merge";
 
 export const AnimatedTooltip = ({ items, setTechSelected, techSelected }) => {

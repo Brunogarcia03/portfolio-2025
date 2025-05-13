@@ -11,11 +11,19 @@ import Strapi from "/svgs/strapi.svg";
 import TailwindCSS from "/svgs/tailwindcss.svg";
 import TypeScript from "/svgs/typescript.svg";
 
+import GitHubDark from "/svgs/github_dark.svg";
+import Nodejs from "/svgs/nodejs.svg";
+import Notion from "/svgs/notion.svg";
+import Vscode from "/svgs/vscode.svg";
+import Postgresql from "/svgs/postgresql.svg";
+import CPlusPlus from "/svgs/c-plusplus.svg";
+import Vercel from "/svgs/vercel_dark.svg";
+
 import {
   ReactDarkUrl,
   PythonUrl,
   CSSUrl,
-  DjangoUrl,
+  NodejsUrl,
   HTML5Url,
   JavaScriptUrl,
   MotionDarkUrl,
@@ -24,6 +32,13 @@ import {
   StrapiUrl,
   TailwindCSSUrl,
   TypeScriptUrl,
+  NotionUrl,
+  GitHubDarkUrl,
+  DjangoUrl,
+  PostgreSQLUrl,
+  CPlusPlusUrl,
+  VisualStudioCodeUrl,
+  VercelDarkUrl,
 } from "@ridemountainpig/svgl-react";
 
 export const cursorColors = [
@@ -36,6 +51,63 @@ export const cursorColors = [
   "bg-[#131fe6]", // Progressus
   "bg-[#6d5396]", // Framer Animations
   "bg-green-800", // Tiny Trees
+];
+
+export const otherIcons = [
+  {
+    icon: Nodejs,
+    url: NodejsUrl,
+    name: "Node.js",
+    description:
+      "Node.js - JavaScript del lado del servidor para aplicaciones escalables.",
+  },
+  {
+    icon: Notion,
+    url: NotionUrl,
+    name: "Notion",
+    description: "Notion - Organización y documentación en un solo lugar.",
+  },
+  {
+    icon: GitHubDark,
+    url: GitHubDarkUrl,
+    name: "GitHub",
+    description:
+      "GitHub - Plataforma para alojar y colaborar en proyectos de código.",
+  },
+  {
+    icon: Django,
+    url: DjangoUrl,
+    name: "Django",
+    description:
+      "Django - Framework web de alto nivel en Python, rápido y seguro.",
+  },
+  {
+    icon: Postgresql,
+    url: PostgreSQLUrl,
+    name: "PostgreSQL",
+    description:
+      "PostgreSQL - Sistema de base de datos relacional avanzado y potente.",
+  },
+  {
+    icon: CPlusPlus,
+    url: CPlusPlusUrl,
+    name: "C++",
+    description:
+      "C++ - Lenguaje de programación potente para sistemas y rendimiento.",
+  },
+  {
+    icon: Vscode,
+    url: VisualStudioCodeUrl,
+    name: "Visual Studio Code",
+    description: "VS Code - Editor de código liviano, flexible y extensible.",
+  },
+  {
+    icon: Vercel,
+    url: VercelDarkUrl,
+    name: "Vercel",
+    description:
+      "Vercel - Despliegue instantáneo para proyectos frontend modernos.",
+  },
 ];
 
 export const iconsList = [
@@ -96,10 +168,11 @@ export const iconsList = [
     description: "Python - Legible, amigable y más inteligente que la mayoría.",
   },
   {
-    icon: Django,
-    url: DjangoUrl,
-    name: "Django",
-    description: "Django - El framework que hace que Python se vista de gala.",
+    icon: Nodejs,
+    url: NodejsUrl,
+    name: "Node.js",
+    description:
+      "Node.js - JavaScript del lado del servidor para aplicaciones escalables.",
   },
   {
     icon: HTML5,

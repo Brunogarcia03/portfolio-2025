@@ -1,35 +1,13 @@
-import { motion, useScroll } from "framer-motion";
-import { useState, useRef } from "react";
-import PolaroidCard from "../components/ui/PolaroidCard";
+import { motion } from "motion/react";
+import { useState } from "react";
 
 import Projects from "../pages/sections/Projects";
 import Skills from "./sections/Skills";
 import Footer from "../components/Footer";
-
-const photoCards = [
-  {
-    layoutId: "photo-1",
-    url: "/photos/miniYo.jpg",
-    label: "Mini yo",
-    className: "hidden lg:block w-[240px] absolute -right-48 -top-20 rotate-6",
-  },
-  {
-    layoutId: "photo-2",
-    url: "/photos/Tango_Tina.jpg",
-    label: "Mi amores",
-    className:
-      "hidden lg:block w-[240px] absolute -left-52 -bottom-24 -rotate-6",
-  },
-];
+import Title from "../components/Title";
 
 const Work = () => {
   const [techSelected, setTechSelected] = useState("");
-
-  const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
 
   return (
     <>
@@ -37,42 +15,8 @@ const Work = () => {
         key="work"
         className="w-full h-full flex flex-col items-center overflow-hidden"
       >
-        <section
-          ref={sectionRef}
-          className="max-w-8xl h-[calc(100vh-117,6px)] flex flex-col items-center py-24"
-        >
-          <div className="flex items-center justify-center relative mb-16">
-            <motion.h1
-              layoutId="bruno"
-              className="text-5xl sm:text-6xl lg:text-8xl text-center font-jetbrainsmono font-semibold z-10 px-[2vh]"
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.75, duration: 0.75, ease: "easeInOut" }}
-            >
-              Hola! Soy <span className="font-zentokyo font-thin">Bruno</span>
-              <br />
-              Programador Web.
-            </motion.h1>
-
-            {photoCards.map(({ layoutId, url, label, className }) => (
-              <motion.div
-                key={layoutId}
-                layoutId={layoutId}
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.75, duration: 0.75, ease: "easeInOut" }}
-                className={className}
-              >
-                <PolaroidCard
-                  scrollYProgress={scrollYProgress}
-                  url={url}
-                  label={label}
-                />
-              </motion.div>
-            ))}
-          </div>
+        <section className="max-w-8xl h-[calc(100vh-117,6px)] flex flex-col items-center py-24">
+          <Title />
           <p className="max-w-3xl text-center px-3 md:p-0 text-lg sm:text-2xl lg:text-3xl z-0 font-inter leading-6 md:leading-8 mr-1 text-slate-800 dark:text-slate-200">
             {"Me apasiona la programación y el desarrollo web, comprometido con la creación de soluciones tecnológicas innovadoras y eficientes."
               .split(" ")

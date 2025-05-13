@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import Compare from "../components/ui/compare";
 import Timeline from "./sections/Timeline";

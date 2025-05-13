@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useEffect, useRef } from "react";
 
 const PolaroidCard = ({ url, label, rotate, scrollYProgress }) => {
