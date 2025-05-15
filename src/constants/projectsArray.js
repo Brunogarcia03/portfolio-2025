@@ -18,6 +18,10 @@ import Vscode from "/svgs/vscode.svg";
 import Postgresql from "/svgs/postgresql.svg";
 import CPlusPlus from "/svgs/c-plusplus.svg";
 import Vercel from "/svgs/vercel_dark.svg";
+import ReactRouter from "/svgs/reactrouter.svg";
+import Shadcn from "/svgs/shadcn-ui_dark.svg";
+import Canva from "/svgs/canva.svg";
+import Figma from "/svgs/figma.svg";
 
 import {
   ReactDarkUrl,
@@ -39,6 +43,10 @@ import {
   CPlusPlusUrl,
   VisualStudioCodeUrl,
   VercelDarkUrl,
+  ReactRouterUrl,
+  ShadcnUiDarkUrl,
+  CanvaUrl,
+  FigmaUrl,
 } from "@ridemountainpig/svgl-react";
 
 export const cursorColors = [
@@ -54,13 +62,6 @@ export const cursorColors = [
 ];
 
 export const otherIcons = [
-  {
-    icon: Nodejs,
-    url: NodejsUrl,
-    name: "Node.js",
-    description:
-      "Node.js - JavaScript del lado del servidor para aplicaciones escalables.",
-  },
   {
     icon: Notion,
     url: NotionUrl,
@@ -107,6 +108,33 @@ export const otherIcons = [
     name: "Vercel",
     description:
       "Vercel - Despliegue instantáneo para proyectos frontend modernos.",
+  },
+  {
+    icon: ReactRouter,
+    url: ReactRouterUrl,
+    name: "React Router",
+    description:
+      "React Router - Navegación dinámica en aplicaciones React con rutas modernas.",
+  },
+  {
+    icon: Shadcn,
+    url: ShadcnUiDarkUrl,
+    name: "shadcn/ui",
+    description:
+      "shadcn/ui - Componentes accesibles y personalizables para React y Tailwind.",
+  },
+  {
+    icon: Canva,
+    url: CanvaUrl,
+    name: "Canva",
+    description:
+      "Canva - Herramienta intuitiva para crear diseños y contenido visual.",
+  },
+  {
+    icon: Figma,
+    url: FigmaUrl,
+    name: "Figma",
+    description: "Figma - Editor de gráficos vectoriales",
   },
 ];
 

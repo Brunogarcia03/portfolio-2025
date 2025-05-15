@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 
 import { AnimatedTooltip } from "../../components/ui/animated-tooltip";
 import { FlipWords } from "../../components/ui/FlipWords";
@@ -13,44 +13,53 @@ function Skills({ techSelected, setTechSelected }) {
       className="w-full overflow-hidden p-24 pb-5 relative"
       onDoubleClick={() => setTechSelected("")}
     >
-      {others ? (
-        <>
-          <h3
-            className="text-3xl md:text-5xl text-center font-medium leading-3 md:leading-10 pb-24 transition-all duration-300"
-            onClick={() => setTechSelected("")}
-          >
-            Otras Tecnologías
-          </h3>
+      <AnimatePresence mode="wait">
+        {others ? (
+          <>
+            <motion.h3
+              className="text-3xl md:text-5xl text-center font-medium leading-3 md:leading-10 pb-24 transition-all duration-300"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 20, opacity: 0 }}
+              onClick={() => setTechSelected("")}
+            >
+              Otras Tecnologías
+            </motion.h3>
 
-          <AnimatedTooltip
-            items={otherIcons}
-            techSelected={techSelected}
-            setTechSelected={setTechSelected}
-          />
-        </>
-      ) : (
-        <>
-          <h3
-            className="text-3xl md:text-5xl text-center font-medium leading-3 md:leading-10 pb-24 transition-all duration-300"
-            onClick={() => setTechSelected("")}
-          >
-            Explorando las{" "}
-            <FlipWords
-              className="text-3xl md:text-5xl font-bold italic"
-              words={["habilidades", "herramientas", "tecnologías"]}
-              duration={4}
+            <AnimatedTooltip
+              items={otherIcons}
+              techSelected={techSelected}
+              setTechSelected={setTechSelected}
             />
-            <br />
-            que he dominado en este viaje.
-          </h3>
+          </>
+        ) : (
+          <>
+            <motion.h3
+              className="text-3xl md:text-5xl text-center font-medium leading-3 md:leading-10 pb-24 transition-all duration-300"
+              onClick={() => setTechSelected("")}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 20, opacity: 0 }}
+            >
+              Explorando las{" "}
+              <FlipWords
+                className="text-3xl md:text-5xl font-bold italic"
+                words={["habilidades", "herramientas", "tecnologías"]}
+                duration={4}
+              />
+              <br />
+              que he dominado en este viaje.
+            </motion.h3>
 
-          <AnimatedTooltip
-            items={iconsList}
-            techSelected={techSelected}
-            setTechSelected={setTechSelected}
-          />
-        </>
-      )}
+            <AnimatedTooltip
+              items={iconsList}
+              techSelected={techSelected}
+              setTechSelected={setTechSelected}
+            />
+          </>
+        )}
+      </AnimatePresence>
+
       <div className="w-full mt-8 flex items-center justify-center">
         <motion.button
           initial={{ scale: 0 }}

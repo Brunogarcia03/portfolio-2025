@@ -27,12 +27,16 @@ export const AnimatedTooltip = ({ items, setTechSelected, techSelected }) => {
     <>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-3xl mx-auto gap-5 place-items-center">
         {items.map((item, idx) => (
-          <div
+          <motion.div
             className="group relative"
             key={item.name}
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
             onMouseMove={handleMouseMove}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 20, opacity: 0 }}
+            transition={{ delay: idx * 0.1 }}
           >
             <AnimatePresence mode="popLayout">
               {hoveredIndex === idx && (
@@ -85,10 +89,10 @@ export const AnimatedTooltip = ({ items, setTechSelected, techSelected }) => {
               <img
                 src={item.icon}
                 alt={item.name}
-                className="w-full h-full rounded-full"
+                className="w-full h-full rounded-full object-contain"
               />
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </>
