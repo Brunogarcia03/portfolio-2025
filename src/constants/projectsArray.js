@@ -220,6 +220,22 @@ export const iconsList = [
 
 export const projectsList = [
   {
+    title: "Viandas Kaizen (Trabajo Real)",
+    url: "https://www.viandaskaizen.com.ar/",
+    icons: [iconsList[1], iconsList[3], iconsList[4], iconsList[5]],
+    color: cursorColors[1],
+    description:
+      "E-commerce de viandas desarrollado con Next.js, optimizado para SEO y rendimiento. Integración con Mercado Pago para pagos seguros. Diseño moderno y responsivo con Tailwind CSS y Shadcn.",
+  },
+  {
+    title: "Buscador Regiones (Trabajo Real)",
+    url: "https://www.buscadorderegionessanitarias.com.ar/",
+    icons: [iconsList[1], iconsList[6], iconsList[7]],
+    color: cursorColors[2],
+    description:
+      "He diseñado un buscador para Banco Prot Programas, permitiendo a los clientes de la provincia de Buenos Aires encontrar su región sanitaria y solicitar su prótesis.",
+  },
+  {
     title: "Stoic Project",
     url: "https://estoicismo-web.vercel.app/",
     icons: [iconsList[1], iconsList[2], iconsList[3], iconsList[4]],
@@ -227,22 +243,7 @@ export const projectsList = [
     description:
       "He creado una página inspirada en la antigua Stoa Poikile, donde comparto frases, libros y reflexiones sobre el estoicismo. El objetivo es traer la sabiduría clásica a la era digital, con una experiencia visual limpia, animaciones suaves y navegación intuitiva.",
   },
-  {
-    title: "Viandas Kaizen",
-    url: "https://viandas-kaizen-a13p.vercel.app/",
-    icons: [iconsList[1], iconsList[3], iconsList[4], iconsList[5]],
-    color: cursorColors[1],
-    description:
-      "E-commerce de viandas desarrollado con Next.js, optimizado para SEO y rendimiento. Integración con Mercado Pago para pagos seguros. Diseño moderno y responsivo con Tailwind CSS y Shadcn.",
-  },
-  {
-    title: "Buscador Regiones",
-    url: "https://www.buscadorderegionessanitarias.com.ar/",
-    icons: [iconsList[1], iconsList[6], iconsList[7]],
-    color: cursorColors[2],
-    description:
-      "He diseñado un buscador para Banco Prot Programas, permitiendo a los clientes de la provincia de Buenos Aires encontrar su región sanitaria y solicitar su prótesis.",
-  },
+
   {
     title: "Sidefolio Logo",
     url: "https://sidefolio-logo.vercel.app/",
