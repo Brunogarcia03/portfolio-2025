@@ -43,7 +43,7 @@ export default function Footer() {
           ))}
         </ul>
         <a
-          href="https://www.canva.com/design/DAFbJcYWOvU/RJbDj3-kw0e7yKH8G5js8A/view?utm_content=DAFbJcYWOvU&utm_campaign=designshare&utm_medium=link&utm_source=editor#2"
+          href="https://docs.google.com/document/d/1wy3wBpAC25UEH8HzhZEyGYnJG-3shSRh/edit?usp=sharing&ouid=116509917676455272710&rtpof=true&sd=true"
           target="_blank"
         >
           <motion.button
@@ -64,7 +64,9 @@ export default function Footer() {
           &#8212; Construido por{" "}
           <a
             className="group-hover:text-sky-500 dark:group-hover:text-emerald-500 ml-1 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-sky-500 dark:after:bg-emerald-500 after:transition-transform after:duration-300 after:ease-[cubic-bezier(69.6%_0.17_162.48)] group-hover:after:origin-bottom-left group-hover:after:scale-x-100"
-            href={"https://brunodev.online/es/"}
+            href={
+              "https://docs.google.com/document/d/1wy3wBpAC25UEH8HzhZEyGYnJG-3shSRh/edit?usp=sharing&ouid=116509917676455272710&rtpof=true&sd=true"
+            }
           >
             Bruno García
           </a>

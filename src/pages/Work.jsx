@@ -39,7 +39,7 @@ const Work = () => {
               })}
           </p>{" "}
           <a
-            href="https://www.canva.com/design/DAFbJcYWOvU/RJbDj3-kw0e7yKH8G5js8A/view?utm_content=DAFbJcYWOvU&utm_campaign=designshare&utm_medium=link&utm_source=editor#2"
+            href="https://docs.google.com/document/d/1wy3wBpAC25UEH8HzhZEyGYnJG-3shSRh/edit?usp=sharing&ouid=116509917676455272710&rtpof=true&sd=true"
             target="_blank"
           >
             <motion.button

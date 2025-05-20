@@ -4,6 +4,7 @@ import Django from "/svgs/django.svg";
 import HTML5 from "/svgs/html5.svg";
 import JavaScript from "/svgs/javascript.svg";
 import MotionDark from "/svgs/motion_dark.svg";
+import Astro from "/svgs/astro_dark.svg";
 import Nextjs from "/svgs/nextjs_icon_dark.svg";
 import PrismaDark from "/svgs/prisma_dark.svg";
 import ReactDark from "/svgs/react_dark.svg";
@@ -47,6 +48,7 @@ import {
   ShadcnUiDarkUrl,
   CanvaUrl,
   FigmaUrl,
+  AstroDarkUrl,
 } from "@ridemountainpig/svgl-react";
 
 export const cursorColors = [
@@ -108,6 +110,12 @@ export const otherIcons = [
     name: "Vercel",
     description:
       "Vercel - Despliegue instantáneo para proyectos frontend modernos.",
+  },
+  {
+    icon: Strapi,
+    url: StrapiUrl,
+    name: "Strapi",
+    description: "Strapi - El CMS que no te grita, ¡te susurra en API!",
   },
   {
     icon: ReactRouter,
@@ -172,12 +180,6 @@ export const iconsList = [
       "Tailwind - Escribir CSS sin escribir CSS (y sin perder la cabeza).",
   },
   {
-    icon: Strapi,
-    url: StrapiUrl,
-    name: "Strapi",
-    description: "Strapi - El CMS que no te grita, ¡te susurra en API!",
-  },
-  {
     icon: TypeScript,
     url: TypeScriptUrl,
     name: "TypeScript",
@@ -215,6 +217,13 @@ export const iconsList = [
     name: "Css",
     description:
       "CSS - Estiliza tus páginas, tal vez puedas hacerlo con tu vida.",
+  },
+  {
+    icon: Astro,
+    url: AstroDarkUrl,
+    name: "Astro",
+    description:
+      "Astro - Rendimiento, simplicidad y potencia para la web moderna.",
   },
 ];
 
